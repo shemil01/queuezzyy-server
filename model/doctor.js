@@ -5,8 +5,7 @@ const doctorSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     phone: { type: String, required: true },
-    specialization: { type: String, required: true }, // e.g., Dentist, Cardiologist
-
+    specialization: { type: String, required: true }, 
     clinics: [
       {
         clinicId: { type: mongoose.Schema.Types.ObjectId, ref: "Clinic" }, // Associated clinics
