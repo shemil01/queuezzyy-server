@@ -6,11 +6,8 @@ const appointmentSchema = new mongoose.Schema(
     doctor: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor", required: true },
     clinic: { type: mongoose.Schema.Types.ObjectId, ref: "Clinic", required: false },
     date: { type: Date, required: true },
-    token: {
-      time: { type: String, required: true }, 
-      isConfirmed: { type: Boolean, default: false },
-    },
-    notes: { type: String }, 
+    status: { type: String, enum: ["booked", "completed", "cancelled"], default: "booked" }
+ 
   },
   { timestamps: true }
 );
