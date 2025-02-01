@@ -4,12 +4,13 @@ const clinicSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     location: { lat: Number, lon: Number },
-    contactNumber: { type: String, required: true },
-    doctors: [{ type: mongoose.Schema.Types.ObjectId, ref: "Doctor" }], // Doctors in this clinic
+    phone: { type: String, required: true },
+    password:{type:String,required:true},
+    doctors: [{ type: mongoose.Schema.Types.ObjectId, ref: "Doctor" }], 
     availability: [
       {
         doctorId: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor" },
-        day: { type: String, required: true }, // e.g., Monday, Tuesday
+        day: { type: String, required: true }, 
         tokens: [{ type: mongoose.Schema.Types.ObjectId, ref: "Token " }],
       },
     ],

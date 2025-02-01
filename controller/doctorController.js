@@ -10,6 +10,18 @@ exports.search = async (req, res) => {
     res.status(200).json(doctors)
 }
 
+//get all doctors
+exports.allDoctors = async (req,res) =>{
+    const doctors = await Doctor.find()
+    if(!doctors){
+        return res.status(404).json({
+            success:false,
+            message:"Doctors not found"
+        })
+    }
+    res.status(200).json(doctors)
+}
+
 // nearest doctor
 exports.getNearestDoctor = async (req, res) => {
     const { lat, lon, specialization } = req.body;
